@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASHOKKUMAR PERUMAL | Cybersecurity Researcher & CEO of Tech Devil AK</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --dark-color: #0d1b2a;
+            --light-color: #f8fafc;
+            --accent-color: #2ec4b6;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f1f5f9;
+            color: var(--dark-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(13, 27, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar {
+            transition: all 0.3s ease;
+            background-color: transparent;
+            padding: 20px 0;
+        }
+        
+        .navbar.scrolled {
+            background-color: var(--dark-color) !important;
+            padding: 10px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-link {
+            color: white !important;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            margin: 0 15px;
+            position: relative;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-title {
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+        
+        .hero-subtitle {
+            color: var(--accent-color);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+        
+        .btn-cta {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: white;
+            color: var(--dark-color) !important;
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        /* Add more custom styles below */
+        .profile-image {
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .skill-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            overflow: hidden;
+            border-radius: 10px;
+            border: none;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#home">
+                <span style="color: var(--accent-color)">Tech Devil</span> AK
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Home) -->
+    <header id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="display-3 fw-bold mb-4 hero-title">ASHOKKUMAR PERUMAL</h1>
+                    <h2 class="fs-2 mb-4 hero-subtitle">CYBERSECURITY RESEARCHER & DEVELOPER</h2>
+                    <p class="lead mb-5">Founder & CEO of Tech Devil AK | Building secure systems against evolving cyber threats</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="#contact" class="btn btn-primary btn-lg px-4 btn-cta">Get In Touch</a>
+                        <a href="#projects" class="btn btn-outline-light btn-lg px-4 btn-cta">View Work</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-white">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title text-3xl fw-bold">About Me</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p class="lead mb-4">
+                        I'm a passionate cybersecurity professional with expertise in identifying vulnerabilities, developing secure systems, and researching emerging threats. My work focuses on creating robust defenses against evolving cyber attacks.
+                    </p>
+                    <p class="mb-4">
+                        With a strong foundation in Python development and network security, I specialize in building AI-powered security solutions and conducting penetration testing to fortify systems against potential breaches.
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Ethical Hacking</li>
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Vulnerability Research</li>
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Security Automation</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> AI in Cybersecurity</li>
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Technical Writing</li>
+                                <li class="mb-2"><i class="fas fa-check text-accent me-2"></i> Security Training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                         alt="About Cybersecurity" 
+                         class="img-fluid rounded shadow profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-5 bg-gray-100">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title text-3xl fw-bold">Technical Skills</h2>
+            <div class="row g-4">
+                <!-- Skill 1 -->
+                <div class="col-md-4">
+                    <div class="card skill-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper bg-blue-100 text-blue-600 rounded-circle w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3">
+                                <i class="fab fa-python fa-2x"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Python Development</h3>
+                            <p class="text-muted mb-0">
+                                Advanced Python scripting for security tools, automation, and AI integration in cybersecurity applications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 2 -->
+                <div class="col-md-4">
+                    <div class="card skill-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper bg-green-100 text-green-600 rounded-circle w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3">
+                                <i class="fas fa-network-wired fa-2x"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Networking</h3>
+                            <p class="text-muted mb-0">
+                                Deep understanding of network protocols, architecture, and security measures to protect infrastructure.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skill 3 -->
+                <div class="col-md-4">
+                    <div class="card skill-card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-wrapper bg-purple-100 text-purple-600 rounded-circle w-16 h-16 d-flex align-items-center justify-content-center mx-auto mb-3">
+                                <i class="fas fa-server fa-2x"></i>
+                            </div>
+                            <h3 class="h5 mb-3">Linux/Windows Security</h3>
+                            <p class="text-muted mb-0">
+                                Expertise in securing both Linux and Windows environments, including hardening and vulnerability assessment.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Skills -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5 mb-3">Additional Capabilities</h3>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">Penetration Testing</span>
+                                <span class="badge bg-success bg-opacity-10 text-success py-2 px-3">Threat Intelligence</span>
+                                <span class="badge bg-info bg-opacity-10 text-info py-2 px-3">Incident Response</span>
+                                <span class="badge bg-warning bg-opacity-10 text-warning py-2 px-3">Cryptography</span>
+                                <span class="badge bg-danger bg-opacity-10 text-danger py-2 px-3">Malware Analysis</span>
+                                <span class="badge bg-secondary bg-opacity-10 text-secondary py-2 px-3">Cloud Security</span>
+                                <span class="badge bg-dark bg-opacity-10 text-dark py-2 px-3">SIEM Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-5 bg-white">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title text-3xl fw-bold">Featured Projects</h2>
+            <div class="row g-4">
+                <!-- Project 1 -->
+                <div class="col-lg-6">
+                    <div class="card project-card h-100 border-0 shadow overflow-hidden">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     class="img-fluid h-100 w-100 object-cover" 
+                                     alt="AI Phishing Detection">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h3 class="h4">AI-Powered Phishing Detection</h3>
+                                    <p class="text-muted">Machine learning system that identifies phishing attempts with 98% accuracy by analyzing email content and metadata.</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> NLP for content analysis</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> URL behavior tracking</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Real-time threat scoring</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <span class="badge bg-primary me-1">Python</span>
+                                        <span class="badge bg-info me-1">TensorFlow</span>
+                                        <span class="badge bg-success">NLP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-6">
+                    <div class="card project-card h-100 border-0 shadow overflow-hidden">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     class="img-fluid h-100 w-100 object-cover" 
+                                     alt="CPS Cybersecurity">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h3 class="h4">Critical Infrastructure Protection</h3>
+                                    <p class="text-muted">Security framework for Cyber-Physical Systems (CPS) in industrial environments with anomaly detection.</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> SCADA system hardening</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Behavioral anomaly detection</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Zero-trust architecture</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <span class="badge bg-dark me-1">C++</span>
+                                        <span class="badge bg-warning me-1">Modbus</span>
+                                        <span class="badge bg-danger">ICS Security</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="col-lg-6">
+                    <div class="card project-card h-100 border-0 shadow overflow-hidden">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     class="img-fluid h-100 w-100 object-cover" 
+                                     alt="Security Automation">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h3 class="h4">Security Automation Framework</h3>
+                                    <p class="text-muted">Orchestration platform that automates vulnerability scanning, patching, and compliance checks.</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Integration with 50+ tools</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Custom workflow creation</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Automated reporting</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <span class="badge bg-primary me-1">Python</span>
+                                        <span class="badge bg-success me-1">Django</span>
+                                        <span class="badge bg-info">REST API</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="col-lg-6">
+                    <div class="card project-card h-100 border-0 shadow overflow-hidden">
+                        <div class="row g-0 h-100">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     class="img-fluid h-100 w-100 object-cover" 
+                                     alt="Threat Intelligence">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card-body">
+                                    <h3 class="h4">Threat Intelligence Platform</h3>
+                                    <p class="text-muted">Aggregates and analyzes threat data from multiple sources to provide actionable intelligence.</p>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Real-time monitoring</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> IOC correlation</li>
+                                        <li class="mb-1"><i class="fas fa-check-circle text-accent me-2"></i> Predictive analytics</li>
+                                    </ul>
+                                    <div class="mt-3">
+                                        <span class="badge bg-danger me-1">Elasticsearch</span>
+                                        <span class="badge bg-info me-1">Kibana</span>
+                                        <span class="badge bg-dark">Threat Intel</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-gray-100">
+        <div class="container py-5">
+            <h2 class="text-center mb-5 section-title text-3xl fw-bold">Get In Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-5">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="h4 mb-4">Contact Information</h3>
+                                    <div class="d-flex align-items-start mb-4">
+                                        <div class="contact-icon bg-primary bg-opacity-10 text-primary me-3">
+                                            <i class="fas fa-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="h6 mb-1">Email</h4>
+                                            <a href="mailto:techdevilak@mail.com" class="text-decoration-none">techdevilak@mail.com</a>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4 class="h6 mb-3 mt-4">Social Media</h4>
+                                    <div class="d-flex gap-3">
+                                        <a href="https://www.instagram.com/tech_devil_ak?igsh=YjdvZ29rNGI4MWs1" target="_blank" class="contact-icon bg-pink-100 text-pink-600">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a href="https://youtube.com/@techdevilak?si=sQalg6k_4ESoZ9Lr" target="_blank" class="contact-icon bg-red-100 text-red-600">
+                                            <i class="fab fa-youtube"></i>
+                                        </a>
+                                        <a href="https://t.me/+M_u_0EvlFNVkMmM1" target="_blank" class="contact-icon bg-blue-100 text-blue-600">
+                                            <i class="fab fa-telegram"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mt-4 mt-md-0">
+                                    <h3 class="h4 mb-4">Send a Message</h3>
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Your Name" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="email" class="form-control" placeholder="Your Email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Subject">
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Tech Devil AK. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="https://www.instagram.com/tech_devil_ak?igsh=YjdvZ29rNGI4MWs1" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@techdevilak?si=sQalg6k_4ESoZ9Lr" target="_blank" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                    <a href="https://t.me/+M_u_0EvlFNVkMmM1" target="_blank" class="text-white me-3"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Initialize Bootstrap scrollspy
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '.navbar'
+        });
+    </script>
+</body>
+</html>
